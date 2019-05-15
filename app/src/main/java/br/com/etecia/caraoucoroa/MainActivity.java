@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Random;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +24,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                Random random = new Random();
+                Integer result = random.nextInt(2);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("numeroRandom", result.toString());
+
+                intent.putExtras(bundle);
                 startActivity(intent);
 
             }
